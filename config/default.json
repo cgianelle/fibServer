@@ -1,5 +1,6 @@
 {
     "server": {
+        "path": "/fibonacci",
         "port": 3184
     }
 }
