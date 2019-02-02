@@ -25,6 +25,31 @@ describe('Fibonacci Router Tests', function() {
                 expect(value).to.equal(5);
             });
     });
+
+    it('Should return a 400 error when no query is provided', ()=>{
+        return chai.request(app)
+            .get('/fibonacci')
+            .then((res) => {
+                expect(res).to.have.status(400);
+            });
+    });
+
+    it('Should return a 400 error when query is NaN', ()=>{
+        return chai.request(app)
+            .get('/fibonacci?term=help')
+            .then((res) => {
+                expect(res).to.have.status(400);
+            });
+    });
+
+    it('Should return a 400 error when query does not include "term"', ()=>{
+        return chai.request(app)
+            .get('/fibonacci?team=5')
+            .then((res) => {
+                expect(res).to.have.status(400);
+            });
+    });
+
 });
 
 
