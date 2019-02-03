@@ -16,9 +16,15 @@ This is a little fibonacci server that I threw together so that I could explore 
 ~~~~
 
 ## Docker Stuff
-### Build Image
+### Build Ubuntu Image
 ~~~~
 docker image build -t cgianelle1976/fibonacci:1.0 .
+~~~~
+### Build Raspberry PI Image
+Note: This is an arm32 image and can only be built on the Raspberry PI itself
+Note2: This image also has to be push to dockerhub from the Raspberry PI
+~~~~
+docker image build -t cgianelle1976/fibonacci:arm32-1.0 -f arm.Dockerfile .
 ~~~~
 ### Run Container
 ~~~~
@@ -31,5 +37,11 @@ docker image tag cgianelle1976/fibonacci:1.0 cgianelle1976/fibonacci:latest
 ### Push Image
 ~~~~
 docker login
-docker image push cgianelle1976/fibonacci:latest
+docker image push cgianelle1976/fibonacci:1.0
+~~~~
+
+## Kubernetes Stuff
+### Create Pod
+~~~~
+kubectl create -f deployment/fibServer.yml
 ~~~~
