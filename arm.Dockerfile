@@ -1,4 +1,4 @@
-FROM arm64v8/node:10-alpine
+FROM arm32v7/node:10-jessie-slim
 
 LABEL maintainer="cgianelle@gmail.com"
 
