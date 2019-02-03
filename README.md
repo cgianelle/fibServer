@@ -22,7 +22,7 @@ docker image build -t cgianelle1976/fibonacci:1.0 .
 ~~~~
 ### Build Raspberry PI Image
 Note: This is an arm32 image and can only be built on the Raspberry PI itself
-Note2: This image also has to be push to dockerhub from the Raspberry PI
+Note2: This image also has to be pushed to dockerhub from the Raspberry PI
 ~~~~
 docker image build -t cgianelle1976/fibonacci:arm32-1.0 -f arm.Dockerfile .
 ~~~~
