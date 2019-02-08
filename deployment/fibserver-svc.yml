@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  fibserver-svc
+  labels:
+    app: fibserver
+spec:
+  selector:
+    app: fibserver
+  type: NodePort
+  ports:
+    - port:  3184
