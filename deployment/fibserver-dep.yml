@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: fibserver-deployment
+  labels:
+    version: 1.0.0
+spec:
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: fibserver
+    spec:
+      containers:
+        - name: fibserver-pod
+          image: cgianelle1976/fibonacci:arm32-1.0
+          ports:
+          - containerPort: 3184
