@@ -1,6 +1,7 @@
 {
     "server": {
         "path": "/fibonacci",
+        "recursivePath": "/fibonacci/recursive",
         "port": 3184
     }
 }
