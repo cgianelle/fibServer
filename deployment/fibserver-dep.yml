@@ -22,3 +22,14 @@ spec:
           image: cgianelle1976/fibonacci:arm32-1.1.0
           ports:
           - containerPort: 3184
+          env:
+            - name: SECRET_FIRST_NAME
+              valueFrom:
+                secretKeyRef:
+                  name:  my-super-secret-secret
+                  key:  my-first-name
+            - name: SECRET_LAST_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: my-super-secret-secret
+                  key: my-last-name
