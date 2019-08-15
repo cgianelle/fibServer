@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fibserver-deployment
   labels:
-    version: 1.1.0
+    version: 1.1.1
 spec:
   replicas: 6
   minReadySeconds: 30
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: fibserver-pod
-          image: cgianelle1976/fibonacci:arm32-1.1.0
+          image: cgianelle1976/fibonacci:arm32-1.1.1
           ports:
           - containerPort: 3184
           env:
@@ -33,3 +33,10 @@ spec:
                 secretKeyRef:
                   name: my-super-secret-secret
                   key: my-last-name
+          volumeMounts:
+            - name: foo
+              mountPath: "/etc/foo"
+      volumes:
+      - name:  foo
+        secret:
+          secretName: my-super-secret-secret

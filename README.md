@@ -45,3 +45,39 @@ docker image push cgianelle1976/fibonacci:1.0
 ~~~~
 kubectl create -f deployment/fibServer.yml
 ~~~~
+
+### Secrets
+~~~~
+# fibServer # kubectl exec fibserver-deployment-668f6d94cb-7fkdj -- sh -c "ls /etc/foo"
+my-first-name
+my-last-name
+# kubectl exec fibserver-deployment-668f6d94cb-7fkdj -- sh -c "cat /etc/foo/my-first-name"
+Chris
+# kubectl exec fibserver-deployment-668f6d94cb-7fkdj -- sh -c "cat /etc/foo/my-last-name"
+Gianelle
+ # kubectl exec fibserver-deployment-668f6d94cb-7fkdj -- sh -c "env"
+SECRET_FIRST_NAME=Chris
+KUBERNETES_PORT=tcp://10.96.0.1:443
+KUBERNETES_SERVICE_PORT=443
+NODE_VERSION=10.15.1
+HOSTNAME=fibserver-deployment-668f6d94cb-7fkdj
+YARN_VERSION=1.13.0
+HOME=/root
+FIBSERVER_SVC_SERVICE_HOST=10.104.38.242
+FIBSERVER_SVC_PORT=tcp://10.104.38.242:1976
+FIBSERVER_SVC_SERVICE_PORT=1976
+FIBSERVER_SVC_PORT_1976_TCP_ADDR=10.104.38.242
+KUBERNETES_PORT_443_TCP_ADDR=10.96.0.1
+FIBSERVER_SVC_PORT_1976_TCP_PORT=1976
+FIBSERVER_SVC_PORT_1976_TCP_PROTO=tcp
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+KUBERNETES_PORT_443_TCP_PORT=443
+KUBERNETES_PORT_443_TCP_PROTO=tcp
+APP_DIR=/usr/app
+FIBSERVER_SVC_PORT_1976_TCP=tcp://10.104.38.242:1976
+KUBERNETES_PORT_443_TCP=tcp://10.96.0.1:443
+KUBERNETES_SERVICE_PORT_HTTPS=443
+KUBERNETES_SERVICE_HOST=10.96.0.1
+PWD=/usr/app
+SECRET_LAST_NAME=Gianelle
+~~~~
