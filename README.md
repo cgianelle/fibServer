@@ -42,8 +42,20 @@ docker image push cgianelle1976/fibonacci:1.0
 
 ## Kubernetes Stuff
 ### Create Pod
+ARM Processor (Raspberry Pi) Version
 ~~~~
 kubectl create -f deployment/fibServer.yml
+~~~~
+
+Non-Arm Version
+~~~~
+kubectl create -f deployment/minikube/Deployment.yaml
+kubectl create -f deployment/minikube/Service.yaml 
+~~~~
+
+Port Forwarding
+~~~~
+kubectl port-forward service/my-fib-server 3184:80
 ~~~~
 
 ### Secrets
