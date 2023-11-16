@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fib-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fib-server
+  template:
+    metadata:
+      labels:
+        app: fib-server
+    spec:
+      containers:
+      - name: fib-server
+        image: cgianelle1976/fibonacci:1.1.0
+        ports:
+        - containerPort: 3184
